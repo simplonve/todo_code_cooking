@@ -277,12 +277,12 @@ label {
   transition: all 0.5s;
 }
 .edit-task {
-  display: none;
+  display: block;
   float: right;
   margin-right: 1%;
   background: none;
   border: none;
-  opacity: 0;
+  opacity: 1;
   cursor: pointer;
   transition: all 0.3s;
 }
