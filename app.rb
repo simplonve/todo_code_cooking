@@ -1,10 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-require 'sinatra/flash'
-require 'sinatra/redirect_with_flash'
 require './environments'
-
-enable :sessions
 
 class Todo < ActiveRecord::Base
 end
@@ -16,16 +12,13 @@ end
 
 post "/" do
   @todos = Todo.new(params[:todos])
-  if @todos.save
-    redirect "/", :notice => 'New task added!'
-  else
-    redirect "/", :error => 'Something went wrong. Try again.'
-  end
+  @todos.save
+  redirect "/"
 end
 
 put "/:id" do
   @todos = Todo.find(params[:id])
-  @todos.update_attributes(params[:todos])
+  @todos.update(params[:todos])
   redirect "/"
 end
 
