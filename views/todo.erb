@@ -7,23 +7,18 @@
 		<div class="column-title">
 			To do
 		</div>
-		<% @todo.each do |todo| %>
+		<% @todos.each do |todo| %>
 			<div class="task">
-				<button type="submit" class="delete-task" form="delete-task-<%= todo.id %>">
-					Delete
-				</button>
-				<button type="submit" id="task-edit-<%= todo.id %>" class="edit-task" form="edit-task-<%= todo.id %>">
-					Edit
-				</button>
-				
 				<form id="edit-task-<%= todo.id %>" action="/<%= todo.id %>" method="post">
 					<input type="hidden" name="_method" value="put">
-					<textarea id="task-textarea-<%= todo.id %>" name="todos[task]">
+					<input type="submit" id="task-edit-<%= todo.id %>" value="Edit">
+					<textarea id="task-textarea-<%= todo.id %>" name="todos[task]" cols="30" rows="10">
 						<%= todo.task %>
 					</textarea>
 				</form>
 				<form id="delete-task-<%= todo.id %>" action="/<%= todo.id %>" method="post">
 					<input type="hidden" name="_method" value="delete">
+					<input type="submit" value="Delete">
 				</form>
 			</div>
 		<% end %>

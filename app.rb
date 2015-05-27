@@ -6,7 +6,7 @@ class Todo < ActiveRecord::Base
 end
 
 get "/" do
-  @todo = Todo.all
+  @todos = Todo.all
   erb :todo
 end
 
