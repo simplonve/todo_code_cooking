@@ -4,4 +4,3 @@ require './environments'
 
 class Todo < ActiveRecord::Base
 end
-
